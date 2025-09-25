@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Budget tracker
+
+Since `create-react-app` has been officially deprecated for few years, This is a [Next.js](https://nextjs.org) project, recommended on [React's official website](https://react.dev/learn/creating-a-react-app).
 
 ## Getting Started
 
