@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Entry } from "@/app/types/types";
+import { Entry } from "@/types/types";
 
 export default function BudgetEntry({ onAddBudget }: { onAddBudget: (budget: Entry) => void }) {
 
@@ -13,10 +13,18 @@ export default function BudgetEntry({ onAddBudget }: { onAddBudget: (budget: Ent
   };
 
   return (
-    <div>
-      <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-      <input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} />
-      <button onClick={handleAddBudget}>Add Budget</button>
+    <div className="flex items-center justify-center gap-4 h-full w-full">
+      <input 
+        className="bg-white text-(--primary) rounded-md p-2" placeholder="Description" type="text" 
+        value={description} onChange={(e) => setDescription(e.target.value)} required/>
+      <input 
+        className="bg-white text-(--primary) rounded-md p-2" placeholder="Amount" type="number" 
+        value={amount} onChange={(e) => setAmount(Number(e.target.value))} required/>
+      <button 
+        className="bg-(--accent) text-white rounded-md p-2 disabled:bg-gray-700" 
+        onClick={handleAddBudget} disabled={description === "" || amount === 0}>
+          Add Budget
+      </button>
     </div>
   );
 }

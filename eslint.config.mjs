@@ -18,6 +18,12 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      ".history/**",
+      ".vscode/**",
+      ".idea/**",
+      ".DS_Store",
+      ".gitignore",
+      ".gitignore",
     ],
   },
 ];
