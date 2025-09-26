@@ -1,25 +1,13 @@
 import { Entry } from "@/types/types";
 import "./budgetList.css";
+import BudgetEntry from "../budget-entry/budgetEntry";
 
 export default function BudgetList({ data }: { data: Entry[] }) {
   return (
     <div className="budget-list">
       <div className="budget-list--container">
-        {data.map(entry => (
-          <div 
-            key={`${entry.id}`} 
-            className="budget-list--item">
-            <span>{entry.description}</span>
-            <span>€{entry.amount}</span>
-            <div className="budget-list--item-buttons">
-              <button className="edit-button">
-                Edit
-              </button>
-              <button className="delete-button">
-                Delete
-              </button>
-            </div>
-          </div>
+        {data.map((entry, index) => (
+          <BudgetEntry key={`${entry.id}`} entry={entry} index={index}/>
         ))}
       </div>
     </div>

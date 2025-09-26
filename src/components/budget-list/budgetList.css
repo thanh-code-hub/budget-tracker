@@ -1,6 +1,7 @@
 /**
 * Intentionally use pure CSS to showcase my CSS skills
 */
+
 .budget-list {
     flex-basis: 3/4;
     overflow-y: auto;
@@ -17,47 +18,6 @@
     align-items: center;
     gap: 2px;
     padding: 10px 5px;
-}
-
-.budget-list--item {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px 5px;
-}
-
-.budget-list--item:not(:last-child) {
-    border-bottom: 1px solid;
-    border-color: solid;
-    border-color: rgba(128, 128, 128, 0.369);
-}
-
-.budget-list--item > span {
-    text-align: left;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.budget-list--item-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    gap: 5px;
-}
-
-
-.budget-list--item-buttons button {
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-}
-
-.edit-button {
-    background-color: var(--accent);
-}
-
-.delete-button {
-    background-color: red;
 }
 
 @media (min-width: 1024px) {

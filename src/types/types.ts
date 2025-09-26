@@ -3,3 +3,7 @@ export type Entry = {
   description: string;
   amount: number;
 }
+
+export type BudgetContextType = {
+  budgetEntries: Entry[]
+}

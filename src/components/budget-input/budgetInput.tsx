@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { Entry } from "@/types/types";
+import { useBudgetContextDispatch } from "@/providers/provider";
 
-export default function BudgetInput({ onAddBudget }: { onAddBudget: (budget: Entry) => void }) {
+export default function BudgetInput() {
 
   const [description, setDescription] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
+  const dispatch = useBudgetContextDispatch();
 
   const handleAddBudget = () => {
-    onAddBudget({ description, amount });
+    dispatch({ 
+      type: "ADD_BUDGET", 
+      payload: { entry: { 
+        id: Date.now(), // Keep each entry unique by using the current timestamp
+        description, amount 
+        } 
+      }
+    });
     setDescription("");
     setAmount(0);
   };
