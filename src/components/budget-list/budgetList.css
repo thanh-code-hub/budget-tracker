@@ -3,7 +3,7 @@
 */
 
 .budget-list {
-    flex-basis: 3/4;
+    flex-basis: 75%;
     overflow-y: auto;
 }
 
