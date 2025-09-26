@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Entry } from "@/types/types";
 
-export default function BudgetEntry({ onAddBudget }: { onAddBudget: (budget: Entry) => void }) {
+export default function BudgetInput({ onAddBudget }: { onAddBudget: (budget: Entry) => void }) {
 
   const [description, setDescription] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
