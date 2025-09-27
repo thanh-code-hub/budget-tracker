@@ -1,27 +1,28 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --white: #eaeaea;
-  --primary: #0A1633;
-  --accent: #FF6A00
+	--white: #eaeaea;
+	--primary: #0a1633;
+	--accent: #ff6a00;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
-  width: 100%;
-  position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	width: 100%;
+	position: relative;
 }
 
 button:disabled {
-  background-color: oklch(37.3% 0.034 259.733);
-  opacity: 0.3;
+	background-color: oklch(37.3% 0.034 259.733);
+	opacity: 0.3;
 }
 
 input.error {
-  outline: 2px solid red;
+	outline: 2px solid red;
 }
 
-input, button {
-  border-radius: var(--radius-md);
+input,
+button {
+	border-radius: var(--radius-md);
 }

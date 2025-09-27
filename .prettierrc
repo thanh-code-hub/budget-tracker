@@ -1,0 +1,17 @@
+{
+  "printWidth": 120,
+  "quoteProps": "consistent",
+  "jsxSingleQuote": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "tabWidth": 4,
+  "useTabs": true,
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "options": {
+        "proseWrap": "always"
+      }
+    }
+  ]
+}

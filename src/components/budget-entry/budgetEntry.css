@@ -3,58 +3,57 @@
 */
 
 .budget-list--entry {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 10px 5px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	padding: 10px 5px;
 }
 
 .budget-list--entry form {
-    grid-column: span 5;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+	grid-column: span 5;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .budget-list--entry:not(:last-child) {
-    border-bottom: 1px solid;
-    border-color: rgba(128, 128, 128, 0.369);
+	border-bottom: 1px solid;
+	border-color: rgba(128, 128, 128, 0.369);
 }
 
 .budget-list--entry > span {
-    text-align: left;
-    margin-top: auto;
-    margin-bottom: auto;
+	text-align: left;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .budget-list--entry-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    gap: 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	gap: 5px;
 }
 
-
 .budget-list--entry-buttons button {
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    min-width: 80px;
+	padding: 10px;
+	border-radius: 5px;
+	color: white;
+	min-width: 80px;
 }
 
 .edit-button {
-    background-color: var(--accent);
+	background-color: var(--accent);
 }
 
 .delete-button {
-    background-color: red;
+	background-color: red;
 }
 
 .save-button {
-    background-color: var(--primary);
+	background-color: var(--primary);
 }
 
 .cancel-button {
-    background-color: red;
+	background-color: red;
 }

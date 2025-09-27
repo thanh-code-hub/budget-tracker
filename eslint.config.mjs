@@ -24,6 +24,7 @@ const eslintConfig = [
       ".DS_Store",
       ".gitignore",
       ".gitignore",
+      ".prettiersrc"
     ],
   },
 ];

@@ -3,25 +3,25 @@
 */
 
 .budget-list {
-    flex-basis: 75%;
-    overflow-y: auto;
+	flex-basis: 75%;
+	overflow-y: auto;
 }
 
 .budget-list--container {
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 2px;
-    padding: 10px 5px;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	gap: 2px;
+	padding: 10px 5px;
 }
 
 @media (min-width: 1024px) {
-    .budget-list--container {
-        width: 70%
-    }
+	.budget-list--container {
+		width: 70%;
+	}
 }
