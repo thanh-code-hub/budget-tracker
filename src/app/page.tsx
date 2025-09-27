@@ -1,7 +1,7 @@
 'use client';
 import BudgetList from '@/components/budget-list/budgetList';
 import Header from '@/components/header/header';
-import { useBudgetContext } from '@/providers/provider';
+import { useBudgetContext } from '@/provider/provider';
 
 export default function Home() {
 	const { budgetEntries } = useBudgetContext();

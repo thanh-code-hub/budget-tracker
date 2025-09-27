@@ -1,7 +1,7 @@
 import { Entry } from '@/types/types';
 import { useState } from 'react';
 import './budgetEntry.css';
-import { useBudgetContextDispatch } from '@/providers/provider';
+import { useBudgetContextDispatch } from '@/provider/provider';
 import { useForm } from 'react-hook-form';
 
 export default function BudgetEntry({ entry, index }: { entry: Entry; index: number }) {

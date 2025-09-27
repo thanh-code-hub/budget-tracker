@@ -1,4 +1,4 @@
-import { useBudgetContextDispatch } from '@/providers/provider';
+import { useBudgetContextDispatch } from '@/provider/provider';
 import { useForm } from 'react-hook-form';
 
 type FormData = {

@@ -17,6 +17,51 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Project structure
+
+For SPA, I chose to go with App Router of Next, no need to install **React Router**, so new pages can be added under `app/`. More info [here]()
+
+```
+budget-tracker/
+├── src/
+│   ├── app/
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── budget-entry/
+│   │   │   ├── budgetEntry.css
+│   │   │   └── budgetEntry.tsx
+│   │   ├── budget-input/
+│   │   │   └── budgetInput.tsx
+│   │   ├── budget-list/
+│   │   │   ├── budgetList.css
+│   │   │   └── budgetList.tsx
+│   │   └── header/
+│   │       └── header.tsx
+│   ├── providers/
+│   │   └── provider.tsx
+│   ├── reducer/
+│   │   └── reducer.ts
+│   └── types/
+│       └── types.ts
+├── public/
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
+```
+
+
+
 ## Components
 
 - BudgetInput: a form used to add new budget entry. Required fileds are `description` and `budget`.
