@@ -4,7 +4,6 @@ export type Entry = {
   budget: number;
   brand?: string;
   quantity?: number;
-  unitPrice?: number;
 }
 
 export type BudgetContextType = {

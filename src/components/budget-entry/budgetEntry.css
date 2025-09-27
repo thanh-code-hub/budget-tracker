@@ -2,26 +2,33 @@
 * Intentionally use pure CSS to showcase my CSS skills
 */
 
-.budget-list--item {
+.budget-list--entry {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     padding: 10px 5px;
 }
 
-.budget-list--item:not(:last-child) {
+.budget-list--entry form {
+    grid-column: span 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.budget-list--entry:not(:last-child) {
     border-bottom: 1px solid;
-    border-color: solid;
     border-color: rgba(128, 128, 128, 0.369);
 }
 
-.budget-list--item > span {
+.budget-list--entry > span {
     text-align: left;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.budget-list--item-buttons {
+.budget-list--entry-buttons {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -29,7 +36,7 @@
 }
 
 
-.budget-list--item-buttons button {
+.budget-list--entry-buttons button {
     padding: 10px;
     border-radius: 5px;
     color: white;

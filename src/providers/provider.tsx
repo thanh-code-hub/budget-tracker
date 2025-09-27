@@ -3,6 +3,8 @@ import { createContext, useContext, useReducer } from "react";
 import { BudgetContextType } from "@/types/types";
 import { budgetContextReducer, Action } from "@/reducer/reducer";
 
+
+// Some dummy data to test the app
 const dummy = [
     {
       id: 1,
@@ -22,63 +24,13 @@ const dummy = [
     },
     {
       id: 4,
-      description: "Loan",
+      description: "Tech",
       budget: 2000,
     },
     {
       id: 5,
       description: "Other",
       budget: 6500,
-    },
-    {
-      id: 6,
-      description: "Other",
-      budget: 1000,
-    },
-    {
-      id: 7,
-      description: "Other",
-      budget: 1000,
-    },
-    {
-      id: 8,
-      description: "Other",
-      budget: 1000,
-    },
-    {
-      id: 9,
-      description: "Other",
-      budget: 1000,
-    },
-    {
-      id: 10,
-      description: "Other",
-      budget: 10000,
-    },
-    {
-      id: 11,
-      description: "Other",
-      budget: 1200,
-    },
-    {
-      id: 12,
-      description: "Other",
-      budget: 500,
-    },
-    {
-      id: 13,
-      description: "Other",
-      budget: 17400,
-    },
-    {
-      id: 14,
-      description: "Other",
-      budget: 210,
-    },
-    {
-      id: 15,
-      description: "Other",
-      budget: 21000,
     }
   ];
 

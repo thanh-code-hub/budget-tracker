@@ -6,7 +6,6 @@ type FormData = {
   budget: number;
   brand: string;
   quantity: number;
-  unitPrice: number;
 }
 
 export default function BudgetInput() {
@@ -22,21 +21,18 @@ export default function BudgetInput() {
   const budget = watch("budget");
   const brand = watch("brand");
   const quantity = watch("quantity");
-  const unitPrice = watch("unitPrice");
 
   const handleAddBudget = () => {
     try {
-
       dispatch({
         type: "ADD_BUDGET",
         payload: {
           entry: {
             id: Date.now(), // Keep each entry unique by using the current timestamp
             description: description.trim(),
-            budget: Math.round(budget * 100) / 100, // Round to 2 decimal places
+            budget: Number(budget),
             brand: brand.trim(),
-            quantity: quantity,
-            unitPrice: unitPrice
+            quantity: Number(quantity),
           }
         }
       });
@@ -52,27 +48,23 @@ export default function BudgetInput() {
   };
 
   return (
-    <form className="flex flex-wrap items-center justify-center gap-4 h-full w-full" onSubmit={handleSubmit(handleAddBudget)}>
+    <form className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 h-content w-full" onSubmit={handleSubmit(handleAddBudget)}>
       <input
-        className={`bg-white text-(--primary) rounded-md p-2 ${errors.description ? "outline-2 outline-solid outline-red-500" : ""}`} placeholder="Description *" type="text"
+        className={`bg-white text-(--primary) p-2 ${errors.description ? "error" : ""}`} placeholder="Description *" type="text"
         {...register("description", { required: true })} />
 
       <input
-        className={`bg-white text-(--primary) rounded-md p-2 ${errors.budget ? "outline-2 outline-solid outline-red-500" : ""}`} placeholder="Budget *" type="number"
-        {...register("budget", { required: true })} />
+        className={`bg-white text-(--primary) p-2 ${errors.budget ? "error" : ""}`} placeholder="Budget *" type="number"
+        {...register("budget", { required: true, valueAsNumber: true })} />
 
       <input
-        className="bg-white text-(--primary) rounded-md p-2" placeholder="Brand" type="text"
+        className="bg-white text-(--primary) p-2" placeholder="Brand" type="text"
         {...register("brand")} />
       <input
-        className="bg-white text-(--primary) rounded-md p-2" placeholder="Quantity" type="number"
-        {...register("quantity")} />
-      <input
-        className="bg-white text-(--primary) rounded-md p-2" placeholder="Unit Price" type="number"
-        {...register("unitPrice")} />
-
+        className="bg-white text-(--primary) p-2" placeholder="Quantity" type="number"
+        {...register("quantity", { valueAsNumber: true })} />
       <button 
-        className="bg-(--accent) text-white rounded-md p-2 disabled:bg-gray-700" 
+        className="bg-(--accent) text-white p-2 disabled:bg-gray-700" 
         disabled={!description || !budget} 
         type="submit">
           Add Budget

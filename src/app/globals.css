@@ -12,3 +12,16 @@ body {
   width: 100%;
   position: relative;
 }
+
+button:disabled {
+  background-color: oklch(37.3% 0.034 259.733);
+  opacity: 0.3;
+}
+
+input.error {
+  outline: 2px solid red;
+}
+
+input, button {
+  border-radius: var(--radius-md);
+}
