@@ -1,38 +1,33 @@
 # Budget tracker
 
-Since `create-react-app` has been officially deprecated for few years, this is a [Next.js](https://nextjs.org) project, recommended on [React's official website](https://react.dev/learn/creating-a-react-app).
+Since `create-react-app` has been officially **deprecated** for few years, this is a [Next.js](https://nextjs.org) project, recommended on [React's official website](https://react.dev/learn/creating-a-react-app). Basically, the app is still React with few extra out-of-the-box features.
 
 ## Getting Started
 
-First, run the development server:
+Install depencies
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- BudgetInput: a form used to add new budget entry. Required fileds are `description` and `budget`.
+- BudgetEntry: Similar to BudgetInput with a slightly different use case. An editable entry which shown in the budget list. The component can switch between **readonly** and **edit** mode. 
+- BudgetList: to diplay all the added entries.
+- Header: display the total budget and BudgetInput.
 
-## Learn More
+## Feature
+- Form validation: `react-hook-form` is used to make sure that required values are provided and submitted values are always in correct type.
+- Error handling: `react-hook-form` watches and update state when errors occur, for example, invalid required fields will be highligted. In case of failing `dispatch` actions, `try catch` statement make sure the app doesn't crash but error message will still be shown.
+- State management: `Context API` is used to make the editting and updating entries more convenient.
+- Styling: Tailwind CSS is ultilized to guarantee a consistent design throughout the app. However, I also showcase my CSS skills in `global.css`, `budgetEntry.css` and `budgetList.css`
+- Code style: Follow the general recommended style of ESLint and I use Prettier to automatically fix all the linting error.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

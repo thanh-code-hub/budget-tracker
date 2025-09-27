@@ -13,6 +13,12 @@ export type Action = {
 	payload: RequireAtLeastOne<{ index: number; entry: Entry }>;
 };
 
+/**
+ * This is the reducer function that will be used to update the state based on the action
+ * @param state The global state which is an object with a budgetEntries property
+ * @param action The action to be performed which should be one of the ActionType
+ * @returns The new state
+ */
 export function budgetContextReducer(state: BudgetContextType, action: Action): BudgetContextType {
 	try {
 		switch (action.type) {
