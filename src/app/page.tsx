@@ -8,7 +8,7 @@ export default function Home() {
   
   return (
     <div className="max-w-screen max-h-screen h-screen v-screen flex flex-col">
-      <Header totalBudget={budgetEntries.reduce((acc, curr) => acc + curr.amount, 0)}/>
+      <Header totalBudget={budgetEntries.reduce((acc, curr) => acc + curr.budget, 0)}/>
       <BudgetList data={budgetEntries}/>
     </div>
   );

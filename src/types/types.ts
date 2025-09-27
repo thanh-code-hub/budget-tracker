@@ -1,7 +1,10 @@
 export type Entry = {
   id?: number;
   description: string;
-  amount: number;
+  budget: number;
+  brand?: string;
+  quantity?: number;
+  unitPrice?: number;
 }
 
 export type BudgetContextType = {

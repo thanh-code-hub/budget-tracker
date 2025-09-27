@@ -6,19 +6,19 @@ import { useBudgetContextDispatch } from "@/providers/provider";
 export default function BudgetEntry({ entry, index }: { entry: Entry, index: number }) {
     const [isEditing, setIsEditing] = useState(false);
     const [description, setDescription] = useState(entry.description);
-    const [amount, setAmount] = useState(entry.amount);
+    const [budget, setTotalPrice] = useState(entry.budget);
     const dispatch = useBudgetContextDispatch();
 
     const handleCancel = () => {
         setDescription(entry.description);
-        setAmount(entry.amount);
+        setTotalPrice(entry.budget);
         setIsEditing(false);
     };
 
     const handleSave = () => {
         dispatch({
             type: "EDIT_BUDGET",
-            payload: { entry: { ...entry, description, amount }, index },
+            payload: { entry: { ...entry, description, budget }, index },
         });
         setIsEditing(false);
     };
@@ -45,8 +45,8 @@ export default function BudgetEntry({ entry, index }: { entry: Entry, index: num
                         className="budget-list--entry-input" 
                         placeholder="Amount" 
                         type="number" 
-                        value={amount} 
-                        onChange={(e) => setAmount(Number(e.target.value))} 
+                        value={budget} 
+                        onChange={(e) => setTotalPrice(Number(e.target.value))} 
                         required/>
                     <div className="budget-list--item-buttons">
                         <div className="budget-list--item-buttons">
@@ -62,7 +62,7 @@ export default function BudgetEntry({ entry, index }: { entry: Entry, index: num
             ) : (
                 <>
                     <span>{entry.description}</span>
-                    <span>€{entry.amount}</span>
+                    <span>€{entry.budget}</span>
                     <div className="budget-list--item-buttons">
                         <button className="edit-button" onClick={() => setIsEditing(true)}>
                             Edit

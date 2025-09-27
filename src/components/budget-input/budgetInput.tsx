@@ -1,38 +1,82 @@
-import { useState } from "react";
 import { useBudgetContextDispatch } from "@/providers/provider";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  description: string;
+  budget: number;
+  brand: string;
+  quantity: number;
+  unitPrice: number;
+}
 
 export default function BudgetInput() {
-
-  const [description, setDescription] = useState<string>("");
-  const [amount, setAmount] = useState<number>(0);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors }
+  } = useForm<FormData>();
   const dispatch = useBudgetContextDispatch();
+  const description = watch("description");
+  const budget = watch("budget");
+  const brand = watch("brand");
+  const quantity = watch("quantity");
+  const unitPrice = watch("unitPrice");
 
   const handleAddBudget = () => {
-    dispatch({ 
-      type: "ADD_BUDGET", 
-      payload: { entry: { 
-        id: Date.now(), // Keep each entry unique by using the current timestamp
-        description, amount 
-        } 
-      }
-    });
-    setDescription("");
-    setAmount(0);
+    try {
+
+      dispatch({
+        type: "ADD_BUDGET",
+        payload: {
+          entry: {
+            id: Date.now(), // Keep each entry unique by using the current timestamp
+            description: description.trim(),
+            budget: Math.round(budget * 100) / 100, // Round to 2 decimal places
+            brand: brand.trim(),
+            quantity: quantity,
+            unitPrice: unitPrice
+          }
+        }
+      });
+
+      // Only reset if dispatch succeeds
+      reset();
+
+    } catch (error) {
+      // Handle validation errors
+      console.error("Error adding budget:", error);
+      alert(error instanceof Error ? error.message : "Failed to add budget entry");
+    }
   };
 
   return (
-    <div className="flex items-center justify-center gap-4 h-full w-full">
-      <input 
-        className="bg-white text-(--primary) rounded-md p-2" placeholder="Description" type="text" 
-        value={description} onChange={(e) => setDescription(e.target.value)} required/>
-      <input 
-        className="bg-white text-(--primary) rounded-md p-2" placeholder="Amount" type="number" 
-        value={amount} onChange={(e) => setAmount(Number(e.target.value))} required/>
+    <form className="flex flex-wrap items-center justify-center gap-4 h-full w-full" onSubmit={handleSubmit(handleAddBudget)}>
+      <input
+        className={`bg-white text-(--primary) rounded-md p-2 ${errors.description ? "outline-2 outline-solid outline-red-500" : ""}`} placeholder="Description *" type="text"
+        {...register("description", { required: true })} />
+
+      <input
+        className={`bg-white text-(--primary) rounded-md p-2 ${errors.budget ? "outline-2 outline-solid outline-red-500" : ""}`} placeholder="Budget *" type="number"
+        {...register("budget", { required: true })} />
+
+      <input
+        className="bg-white text-(--primary) rounded-md p-2" placeholder="Brand" type="text"
+        {...register("brand")} />
+      <input
+        className="bg-white text-(--primary) rounded-md p-2" placeholder="Quantity" type="number"
+        {...register("quantity")} />
+      <input
+        className="bg-white text-(--primary) rounded-md p-2" placeholder="Unit Price" type="number"
+        {...register("unitPrice")} />
+
       <button 
         className="bg-(--accent) text-white rounded-md p-2 disabled:bg-gray-700" 
-        onClick={handleAddBudget} disabled={description === "" || amount === 0}>
+        disabled={!description || !budget} 
+        type="submit">
           Add Budget
       </button>
-    </div>
+    </form>
   );
 }
