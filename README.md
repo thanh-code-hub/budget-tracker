@@ -1,4 +1,4 @@
-# Budget tracker
+# Budget tracker - Frontend
 
 Since `create-react-app` has been officially **deprecated** for few years, this is a [Next.js](https://nextjs.org) project, recommended on [React's official website](https://react.dev/learn/creating-a-react-app). Basically, the app is still React with few extra out-of-the-box features.
 
